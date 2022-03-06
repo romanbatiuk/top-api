@@ -9,6 +9,8 @@ import {
 	Param,
 	Patch,
 	Post,
+	UsePipes,
+	ValidationPipe,
 } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { FindProductDto } from './dto/find-product.dto';
@@ -54,7 +56,10 @@ export class ProductController {
 		return updatedProduct;
 	}
 
+	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
-	@Post()
-	async find(@Body() dto: FindProductDto) {}
+	@Post('find')
+	async find(@Body() dto: FindProductDto) {
+		return this.productService.findProductsWithReviews(dto);
+	}
 }
