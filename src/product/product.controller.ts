@@ -14,12 +14,9 @@ export class ProductController {
 	async delete(@Param('id') id: string) {}
 
 	@Patch(':id')
-	async patch(@Param('id') id: string, @Body() dto: ProductModel) {
-		return true;
-	}
+	async patch(@Param('id') id: string, @Body() dto: ProductModel) {}
 
 	@HttpCode(200)
 	@Post()
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	async find(@Body() dto: FindProductDto) {}
 }
