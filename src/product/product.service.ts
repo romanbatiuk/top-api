@@ -52,6 +52,19 @@ export class ProductService {
 					$addFields: {
 						reviewCount: { $size: '$reviews' },
 						reviewAvg: { $avg: '$reviews.rating' },
+
+						//! This sort by createdAt work MongoDB 4.4 or higher version,
+						//! free M0, or shared M2 and M5 clusters (these do not support server side JavaScript)
+						// reviews: {
+						// 	$function: {
+						// 		body: `function (reviews) {
+						// 			reviews.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+						// 			return reviews;
+						// 		}`,
+						// 		args: ['reviews'],
+						// 		lang: 'js',
+						// 	},
+						// },
 					},
 				},
 			])

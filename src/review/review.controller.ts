@@ -22,6 +22,7 @@ import { UserEmail } from './user-email.decorator';
 export class ReviewController {
 	constructor(private readonly reviewService: ReviewService) {}
 
+	@UseGuards(JwtAuthGuard)
 	@UsePipes(new ValidationPipe())
 	@Post('create')
 	async create(@Body() dto: CreateReviewDto) {
@@ -37,7 +38,6 @@ export class ReviewController {
 		}
 	}
 
-	@UseGuards(JwtAuthGuard)
 	@Get('buyProduct/:productId')
 	async getByProduct(
 		@Param('productId', IdValidationPipe) productId: string,
