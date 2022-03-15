@@ -19,6 +19,12 @@ export class ProductModel extends TimeStamps {
 	price: number;
 
 	@prop()
+	link: string;
+
+	@prop()
+	initialRating: number;
+
+	@prop()
 	oldPrice?: number;
 
 	@prop()
@@ -31,7 +37,7 @@ export class ProductModel extends TimeStamps {
 	advantages: string;
 
 	@prop()
-	disAdvantages: string;
+	disAdvantages?: string;
 
 	@prop({ type: () => [String] })
 	categories: string[];

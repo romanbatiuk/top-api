@@ -45,6 +45,12 @@ export class TopPageModel extends TimeStamps {
 	title: string;
 
 	@prop()
+	metaTitle: string;
+
+	@prop()
+	metaDescription: string;
+
+	@prop()
 	category: string;
 
 	// https://grc.ua/ (HeadHunter)
@@ -52,10 +58,10 @@ export class TopPageModel extends TimeStamps {
 	hh?: HtData;
 
 	@prop({ type: () => [TopPageAdvantage] })
-	advantages: TopPageAdvantage[];
+	advantages?: TopPageAdvantage[];
 
 	@prop()
-	seoText: string;
+	seoText?: string;
 
 	@prop()
 	tagsTitle: string;

@@ -38,6 +38,12 @@ export class CreateTopPageDto {
 	title: string;
 
 	@IsString()
+	metaTitle: string;
+
+	@IsString()
+	metaDescription: string;
+
+	@IsString()
 	category: string;
 
 	@IsOptional()
@@ -46,12 +52,14 @@ export class CreateTopPageDto {
 	hh?: HtDataDto;
 
 	@IsArray()
+	@IsOptional()
 	@ValidateNested()
 	@Type(() => TopPageAdvantageDto)
-	advantages: TopPageAdvantageDto[];
+	advantages?: TopPageAdvantageDto[];
 
 	@IsString()
-	seoText: string;
+	@IsOptional()
+	seoText?: string;
 
 	@IsString()
 	tagsTitle: string;
