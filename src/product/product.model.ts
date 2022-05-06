@@ -4,6 +4,8 @@ import { Base, TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
 class ProductCharacteristic {
 	@prop()
 	name: string;
+
+	@prop()
 	value: string;
 }
 
